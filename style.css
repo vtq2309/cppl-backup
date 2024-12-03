@@ -1,0 +1,246 @@
+/* CSS Placeholder Floating */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 280px;
+}
+
+.logo-title {
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 270px; /* Giới hạn chiều rộng của logo */
+    max-height: 100px; /* Giới hạn chiều cao của logo */
+    width: auto; /* Đảm bảo giữ tỷ lệ */
+    height: auto; /* Đảm bảo giữ tỷ lệ */
+    display: block; /* Đảm bảo logo là block element */
+    margin: 0 auto; /* Căn giữa logo */
+}
+
+.input-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3px;
+    flex-direction: column;
+}
+
+.input-container {
+    position: relative;
+    width: 90%; /* Chiếm toàn bộ chiều rộng của container */
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #007BFF;
+}
+
+input:focus + label,
+input:valid + label {
+    transform: translateY(-20px);
+    font-size: 11px;
+    color: #007BFF;
+}
+
+label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: white;
+    padding: 0 5px;
+    transition: 0.3s;
+    font-size: 16px;
+    color: #aaa;
+    pointer-events: none;
+}
+
+#suggestions, #run-suggestions {
+    max-height: 200px; /* Đảm bảo chiều cao tối đa và thêm khả năng cuộn */
+    overflow-y: auto; /* Tạo khả năng cuộn */
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1000;
+    width: 260px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: none; /* Mặc định ẩn, sẽ hiển thị khi có gợi ý */
+    font-size: 16px;
+}
+
+#suggestions div, #run-suggestions div {
+    padding: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#suggestions div:hover, #run-suggestions div:hover {
+    background-color: #f0f0f0; /* Hiệu ứng hover cho gợi ý */
+}
+
+#result {
+    display: none;
+}
+
+#result p {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+#result {
+    margin-top: 20px; /* Tăng khoảng cách phía trên nhiều hơn */
+}
+
+.map-button-container {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.map-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 14px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.map-button:hover {
+    background-color: #0056b3;
+}
+
+.pointing-hand-image {
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+}
+
+footer {
+    margin-top: 60px;
+}
+
+.footer-content p {
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.small-button {
+    margin: 5px 0; /* Tạo khoảng cách dọc giữa các nút */
+    display: inline-block;
+    padding: 5px 8px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.small-button:hover {
+    background-color: #0056b3;
+}
+
+.small-text {
+    font-size: 14px !important; /* Sử dụng px để định nghĩa kích thước chữ nhỏ hơn */
+    color: gray; /* Màu sắc chữ */
+}
+
+/* Các tab */
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border: none;
+    font-size: 12px; /* Giảm kích thước phông chữ để hiển thị thành 2 dòng */
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+    white-space: normal; /* Cho phép xuống dòng nếu văn bản dài */
+    text-align: center; /* Căn giữa văn bản */
+}
+
+.tab-button:not(:last-child) {
+    border-right: 1px solid #ccc;
+}
+
+.tab-button.active {
+    background-color: #007BFF;
+    color: white;
+}
+
+.tab-button:hover {
+    background-color: #e1e1e1;
+}
+
+/* Nội dung của các tab */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Hiệu ứng mờ dần cho phần nội dung tab */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Tăng kích thước chữ cho kết quả Run Number và Zone */
+#run-info p {
+    font-size: 18px; /* Tăng kích thước chữ */
+    margin: 5px 0; /* Thêm khoảng cách dọc giữa các dòng */
+}
